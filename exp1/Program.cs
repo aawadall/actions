@@ -18,7 +18,7 @@ namespace exp1
             IActorRef actorRef = SampleActorSystem.ActorOf(sampleActorProps, "SampleActor");
 
             actorRef.Tell(new SampleMessage("sample title", 0x102));
-
+            actorRef.Tell(new SampleMessage("sample title", 0x10));
             Console.ReadLine();
             SampleActorSystem.Terminate();
         }

@@ -12,7 +12,7 @@ namespace actor.Actors
         {
 
             System.Console.WriteLine($"Creating a {this.GetType().Name}");
-            Receive<SampleMessage>(message => HandleSampleMessage(message), message => message.Id == 0x10);
+            Receive<SampleMessage>(HandleSampleMessage, message => message.Id == 0x10);
             Receive<SampleMessage>(DefaultMessageHandler);
         }
 
