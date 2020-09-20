@@ -1,5 +1,6 @@
 
 using System;
+using actor.Messages;
 using Akka.Actor;
 namespace actor
 {
@@ -13,20 +14,16 @@ namespace actor
 
         protected override void OnReceive(object message)
         {
-            if(message is string)
+            if(message is SampleMessage)
             {
-                System.Console.WriteLine($"Received string message: {message}");
-            }
-            else if(message is int)
-            {
-                System.Console.WriteLine($"Received int message: {message}");
+                System.Console.WriteLine($"Received message of type {message.GetType().Name}");
+                System.Console.WriteLine($"With Id: {((SampleMessage)message).Id}");
+                System.Console.WriteLine($"And Title: {((SampleMessage)message).Title}");
             }
             else 
             {
                 Unhandled(message);
             }
-        }
-
-        
+        }       
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using actor;
+using actor.Messages;
 using Akka.Actor;
 namespace exp1
 {
@@ -15,10 +16,7 @@ namespace exp1
             Props sampleActorProps = Props.Create<PrimitiveActor>();
             IActorRef actorRef = SampleActorSystem.ActorOf(sampleActorProps, "SampleActor");
 
-            actorRef.Tell("Primitive String Message");
-            actorRef.Tell(0x101);
-            actorRef.Tell('c');
-            Console.ReadLine();
+            actorRef.Tell(new SampleMessage("sample title", 0x102));
             SampleActorSystem.Terminate();
         }
     }
