@@ -20,6 +20,8 @@ namespace exp1
 
             actorRef.Tell(new SampleMessage("sample title", 0x102));
             actorRef.Tell(new SampleMessage("sample title", 0x10));
+            
+            actorRef.Tell(PoisonPill.Instance);
             Console.ReadLine();
             SampleActorSystem.Terminate();
             Console.WriteLine("Waiting for Termination");
