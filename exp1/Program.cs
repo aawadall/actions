@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using actor;
 using actor.Actors;
 using actor.Messages;
@@ -21,6 +22,10 @@ namespace exp1
             actorRef.Tell(new SampleMessage("sample title", 0x10));
             Console.ReadLine();
             SampleActorSystem.Terminate();
+            Console.WriteLine("Waiting for Termination");
+            SampleActorSystem.WhenTerminated.Wait();
+            Console.WriteLine("Terminated");
+            
         }
     }
 }
