@@ -96,6 +96,7 @@ namespace actor.Actors
         private void HandleSampleMessage(SampleMessage message) 
         {
             System.Console.WriteLine($"Recieved message:\n {JsonConvert.SerializeObject(message)}");
+            
         }
 
         
